@@ -1,0 +1,2783 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root {
+  font-family: 'DM Sans', sans-serif;
+  color: #edf5fa;
+  background: #080e16;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+}
+* {
+  box-sizing: border-box;
+}
+html {
+  min-width: 320px;
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+}
+button,
+input {
+  font: inherit;
+}
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid #61e3ce;
+  outline-offset: 3px;
+}
+.login-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  background:
+    radial-gradient(ellipse at 22% 45%, rgba(18, 71, 81, 0.2), transparent 43%),
+    #080e16;
+}
+.login-background {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.glow {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.12;
+  animation: glow-drift 9s ease-in-out infinite alternate;
+}
+.glow-one {
+  top: 15%;
+  left: 10%;
+  background: #20d7bf;
+}
+.glow-two {
+  right: 7%;
+  bottom: 3%;
+  background: #2671b8;
+  animation-delay: -4s;
+}
+.road-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background-image:
+    linear-gradient(rgba(97, 227, 206, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(97, 227, 206, 0.055) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: linear-gradient(110deg, black, transparent 75%);
+}
+.login-navbar {
+  position: relative;
+  z-index: 1;
+  width: min(1320px, calc(100% - 100px));
+  min-height: 88px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(161, 187, 209, 0.13);
+}
+.login-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: -0.8px;
+}
+.brand-symbol {
+  width: 37px;
+  height: 37px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  color: #071714;
+  background: #65e3ce;
+  font-size: 22px;
+  box-shadow: 0 0 25px rgba(101, 227, 206, 0.14);
+}
+.login-brand b {
+  color: #65e3ce;
+}
+.navbar-caption {
+  color: #8298ab;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+.login-content {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: min(1190px, calc(100% - 100px));
+  margin: 0 auto;
+  padding: 55px 0;
+  display: grid;
+  grid-template-columns: 1.1fr 0.78fr;
+  align-items: center;
+  gap: clamp(45px, 8vw, 125px);
+}
+.login-intro {
+  padding: 20px 0;
+}
+.intro-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 13px;
+  color: #82e8d7;
+  border: 1px solid rgba(101, 227, 206, 0.22);
+  border-radius: 4px;
+  background: rgba(31, 107, 98, 0.12);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+}
+.online-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #65e3ce;
+  box-shadow: 0 0 10px rgba(101, 227, 206, 0.6);
+}
+.login-intro h1 {
+  margin: 31px 0 23px;
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(47px, 5.3vw, 74px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -4px;
+}
+.login-intro h1 span {
+  color: #65e3ce;
+}
+.login-intro > p {
+  max-width: 470px;
+  margin: 0;
+  color: #9aabba;
+  font-size: 14px;
+  line-height: 1.95;
+}
+.intro-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 34px;
+  margin-top: 43px;
+}
+.intro-stats > div {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.stat-icon {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(101, 227, 206, 0.2);
+  border-radius: 10px;
+  color: #65e3ce;
+  background: rgba(101, 227, 206, 0.05);
+  font-size: 23px;
+}
+.intro-stats strong,
+.intro-stats small {
+  display: block;
+}
+.intro-stats strong {
+  font-size: 12px;
+  font-weight: 600;
+}
+.intro-stats small {
+  margin-top: 5px;
+  color: #8297aa;
+  font-size: 10px;
+}
+.login-card {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+  padding: 31px;
+  border: 1px solid rgba(147, 176, 199, 0.19);
+  border-radius: 10px;
+  background: linear-gradient(145deg, rgba(19, 33, 46, 0.97), rgba(11, 21, 31, 0.98));
+  box-shadow: 0 25px 90px rgba(0, 0, 0, 0.27);
+  backdrop-filter: blur(20px);
+  animation: card-enter 0.65s ease both;
+}
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.card-kicker {
+  color: #65e3ce;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+.card-top h2 {
+  margin: 13px 0 7px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+.card-top p {
+  margin: 0;
+  color: #92a6b7;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.card-logo {
+  color: #65e3ce;
+  font-family: 'Manrope', sans-serif;
+  font-size: 37px;
+  font-weight: 800;
+}
+.card-logo span {
+  color: #edf5fa;
+}
+.login-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+  margin: 27px 0;
+  padding: 4px;
+  border-radius: 5px;
+  background: #09131d;
+}
+.login-tabs button {
+  min-height: 38px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #899caf;
+  background: transparent;
+  cursor: pointer;
+  font-size: 11px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+.login-tabs button:hover {
+  color: #edf5fa;
+}
+.login-tabs button.selected {
+  color: #75e8d5;
+  border-color: rgba(101, 227, 206, 0.18);
+  background: #172b33;
+}
+.login-card form {
+  display: grid;
+  gap: 18px;
+}
+.login-card label {
+  display: grid;
+  gap: 9px;
+  color: #dbe6ee;
+  font-size: 11px;
+  font-weight: 600;
+}
+.login-card input {
+  width: 100%;
+  height: 46px;
+  padding: 0 13px;
+  color: #edf5fa;
+  border: 1px solid #2a3b4b;
+  border-radius: 5px;
+  outline: none;
+  background: #0a141e;
+  font-size: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.login-card input::placeholder {
+  color: #657b8e;
+}
+.login-card input:focus {
+  border-color: #65e3ce;
+  box-shadow: 0 0 0 3px rgba(101, 227, 206, 0.07);
+}
+.login-submit {
+  min-height: 47px;
+  margin-top: 4px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid #65e3ce;
+  border-radius: 5px;
+  color: #061713;
+  background: #65e3ce;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 700;
+  transition: transform 0.2s, background 0.2s;
+}
+.login-submit:hover {
+  transform: translateY(-2px);
+  background: #83f0de;
+}
+.login-submit span {
+  font-size: 20px;
+}
+.login-security {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 22px;
+  color: #9aabba;
+  font-size: 9px;
+  text-align: center;
+}
+.login-security span {
+  color: #65e3ce;
+  font-size: 17px;
+}
+.login-notice {
+  margin: 15px 0 0;
+  padding-top: 14px;
+  border-top: 1px solid rgba(147, 176, 199, 0.12);
+  color: #71869a;
+  font-size: 9px;
+  line-height: 1.6;
+  text-align: center;
+}
+.login-footer {
+  position: relative;
+  z-index: 1;
+  width: min(1320px, calc(100% - 100px));
+  min-height: 66px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-top: 1px solid rgba(161, 187, 209, 0.13);
+  color: #778c9f;
+  font-size: 9px;
+  letter-spacing: 0.5px;
+}
+.login-footer b {
+  margin-left: 7px;
+  color: #65e3ce;
+}
+@keyframes glow-drift {
+  from {
+    transform: translate3d(-10px, 0, 0);
+  }
+  to {
+    transform: translate3d(35px, 25px, 0);
+  }
+}
+@keyframes card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (min-width: 1500px) {
+  .login-content {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+}
+@media (max-width: 900px) {
+  .login-navbar,
+  .login-footer {
+    width: calc(100% - 48px);
+  }
+  .login-content {
+    width: calc(100% - 48px);
+    grid-template-columns: 1fr 0.95fr;
+    gap: 30px;
+  }
+  .login-intro h1 {
+    font-size: clamp(42px, 6vw, 57px);
+    letter-spacing: -2.8px;
+  }
+  .login-card {
+    padding: 23px;
+  }
+  .navbar-caption {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 650px) {
+  .login-navbar {
+    width: calc(100% - 36px);
+    min-height: 72px;
+  }
+  .login-brand {
+    font-size: 17px;
+  }
+  .brand-symbol {
+    width: 32px;
+    height: 32px;
+    font-size: 19px;
+  }
+  .navbar-caption {
+    max-width: 115px;
+    text-align: right;
+    line-height: 1.7;
+    font-size: 7px;
+  }
+  .login-content {
+    width: calc(100% - 36px);
+    grid-template-columns: 1fr;
+    gap: 37px;
+    padding: 48px 0;
+  }
+  .login-intro {
+    padding: 0;
+  }
+  .intro-label {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .login-intro h1 {
+    margin: 24px 0 17px;
+    font-size: clamp(45px, 12vw, 62px);
+    letter-spacing: -3px;
+  }
+  .login-intro > p {
+    font-size: 13px;
+  }
+  .intro-stats {
+    margin-top: 27px;
+    gap: 20px;
+  }
+  .login-card {
+    max-width: none;
+    justify-self: stretch;
+    padding: 24px 20px;
+  }
+  .card-top h2 {
+    font-size: 24px;
+  }
+  .login-footer {
+    width: calc(100% - 36px);
+    min-height: 68px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    font-size: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+/* ===== RoadSense AI Dashboard ===== */
+.dashboard-page {
+  min-height: 100vh;
+  padding: 28px clamp(20px, 5vw, 76px);
+  background:
+    radial-gradient(ellipse at 80% 5%, rgba(54, 190, 169, 0.09), transparent 36%),
+    #090f18;
+  color: #edf5f7;
+  font-family: Inter, system-ui, sans-serif;
+}
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid rgba(180, 210, 220, 0.12);
+}
+.dashboard-header-right {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+.dashboard-status {
+  color: #82dfcf;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+.dashboard-logout,
+.secondary-button {
+  border: 1px solid rgba(130, 223, 207, 0.25);
+  background: rgba(130, 223, 207, 0.07);
+  color: #a4ecdf;
+  border-radius: 9px;
+  padding: 11px 16px;
+  cursor: pointer;
+}
+.dashboard-welcome {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  padding: 58px 0 36px;
+}
+.dashboard-welcome h1 {
+  margin: 20px 0 14px;
+  font-size: clamp(38px, 5vw, 62px);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+}
+.dashboard-welcome h1 span {
+  color: #82dfcf;
+}
+.dashboard-welcome p,
+.panel-heading p,
+.feature-panel p {
+  color: #9aaab9;
+  line-height: 1.8;
+}
+.emergency-button {
+  flex-shrink: 0;
+  border: 1px solid rgba(255, 104, 104, 0.4);
+  background: rgba(255, 85, 85, 0.1);
+  color: #ffaaaa;
+  padding: 14px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 700;
+}
+.emergency-notice {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid rgba(255, 104, 104, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 85, 85, 0.07);
+  color: #ffd0d0;
+}
+.emergency-notice p {
+  line-height: 1.7;
+  color: #e2baba;
+}
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+}
+.dashboard-panel {
+  min-width: 0;
+  padding: 26px;
+  border: 1px solid rgba(180, 210, 220, 0.13);
+  border-radius: 16px;
+  background: linear-gradient(145deg, #141f2d, #0e1723);
+  box-shadow: 0 16px 42px rgba(0, 0, 0, 0.13);
+}
+.panel-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 25px;
+}
+.panel-heading h2,
+.feature-panel h2 {
+  margin: 9px 0;
+  font-size: 23px;
+  letter-spacing: -0.5px;
+}
+.panel-heading p,
+.feature-panel p {
+  margin: 0;
+  font-size: 13px;
+}
+.panel-icon,
+.feature-symbol {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  border: 1px solid rgba(130, 223, 207, 0.2);
+  border-radius: 12px;
+  background: rgba(130, 223, 207, 0.08);
+  color: #82dfcf;
+  font-size: 25px;
+}
+.route-form {
+  display: grid;
+  gap: 19px;
+}
+.route-form label {
+  display: grid;
+  gap: 9px;
+  color: #c7d4df;
+  font-size: 13px;
+  font-weight: 600;
+}
+.route-form input {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 14px 15px;
+  border: 1px solid #2b3a4b;
+  border-radius: 9px;
+  outline: none;
+  background: #0a121d;
+  color: #edf5f7;
+  font: inherit;
+}
+.route-form input:focus {
+  border-color: #82dfcf;
+  box-shadow: 0 0 0 3px rgba(130, 223, 207, 0.08);
+}
+.route-form .login-submit {
+  width: 100%;
+  margin-top: 3px;
+}
+.dashboard-message {
+  margin-top: 16px;
+  padding: 13px;
+  border-radius: 9px;
+  background: rgba(130, 223, 207, 0.08);
+  color: #a4ecdf;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.route-placeholder {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 24px;
+  padding: 18px;
+  border: 1px dashed #334658;
+  border-radius: 11px;
+}
+.route-placeholder > span {
+  color: #82dfcf;
+  font-size: 23px;
+}
+.route-placeholder strong {
+  font-size: 14px;
+}
+.route-placeholder p {
+  margin: 7px 0 0;
+  color: #8f9fb0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.report-list {
+  display: grid;
+  gap: 12px;
+}
+.report-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(180, 210, 220, 0.1);
+}
+.report-marker {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: rgba(255, 174, 92, 0.1);
+  color: #ffbd80;
+  font-weight: 800;
+}
+.report-details {
+  display: grid;
+  gap: 5px;
+  min-width: 0;
+}
+.report-details strong {
+  font-size: 13px;
+}
+.report-details > span,
+.report-meta small {
+  color: #8f9fb0;
+  font-size: 11px;
+}
+.report-meta {
+  display: grid;
+  justify-items: end;
+  gap: 6px;
+  margin-left: auto;
+  text-align: right;
+}
+.severity {
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+}
+.severity-high {
+  background: rgba(255, 94, 94, 0.12);
+  color: #ff9696;
+}
+.severity-medium {
+  background: rgba(255, 190, 92, 0.12);
+  color: #ffcf87;
+}
+.severity-low {
+  background: rgba(130, 223, 207, 0.1);
+  color: #82dfcf;
+}
+.demo-note {
+  margin: 18px 0 0;
+  color: #7f91a3;
+  font-size: 11px;
+  line-height: 1.6;
+}
+.feature-panel {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+}
+.feature-panel > div {
+  flex: 1;
+  min-width: 0;
+}
+.feature-panel .secondary-button {
+  align-self: center;
+  flex-shrink: 0;
+}
+.coming-soon {
+  align-self: center;
+  flex-shrink: 0;
+  color: #8fa2b5;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+.dashboard-footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 54px;
+  padding: 22px 0;
+  border-top: 1px solid rgba(180, 210, 220, 0.12);
+  color: #73869a;
+  font-size: 10px;
+  letter-spacing: 0.7px;
+}
+@media (max-width: 850px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .feature-panel {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 520px) {
+  .dashboard-page {
+    padding: 20px 15px;
+  }
+  .dashboard-header {
+    align-items: flex-start;
+  }
+  .dashboard-header-right {
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dashboard-status {
+    font-size: 8px;
+  }
+  .dashboard-welcome {
+    padding-top: 40px;
+  }
+  .dashboard-panel {
+    padding: 19px;
+  }
+  .feature-panel .secondary-button,
+  .coming-soon {
+    margin-left: 63px;
+  }
+  .dashboard-footer {
+    flex-direction: column;
+  }
+}
+/* Interactive OpenStreetMap */
+.map-panel {
+  grid-column: 1 / -1;
+}
+.real-map {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid #2b3a4b;
+  border-radius: 12px;
+  background: #111b28;
+}
+.real-map .leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: #e5e8e8;
+}
+@media (max-width: 600px) {
+  .real-map {
+    height: 320px;
+  }
+}
+/* Ensure the map has a visible area */
+.map-panel {
+  display: block;
+  grid-column: 1 / -1;
+}
+.real-map {
+  display: block;
+  width: 100%;
+  height: 400px;
+  min-height: 400px;
+  overflow: hidden;
+  border-radius: 12px;
+  background: #e5e8e8;
+}
+.real-map .leaflet-container {
+  width: 100%;
+  height: 400px;
+  min-height: 400px;
+}
+/* Fix Leaflet route instructions readability */
+.leaflet-routing-container {
+  background: #ffffff !important;
+  color: #1c2733 !important;
+  opacity: 1 !important;
+  border: 1px solid #cbd5e1 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.2) !important;
+  max-height: 300px !important;
+  overflow-y: auto !important;
+}
+.leaflet-routing-container h2,
+.leaflet-routing-container h3,
+.leaflet-routing-container h4,
+.leaflet-routing-container p,
+.leaflet-routing-container td,
+.leaflet-routing-container th,
+.leaflet-routing-container span,
+.leaflet-routing-container div {
+  color: #1c2733 !important;
+}
+.leaflet-routing-container table {
+  color: #1c2733 !important;
+  background: #ffffff !important;
+}
+.leaflet-routing-container tr:nth-child(odd) {
+  background: #f1f5f9 !important;
+}
+.leaflet-routing-container tr:nth-child(even) {
+  background: #ffffff !important;
+}
+.leaflet-routing-container .leaflet-routing-alt {
+  background: #ffffff !important;
+  color: #1c2733 !important;
+}
+.leaflet-routing-container .leaflet-routing-alt:hover {
+  background: #e8f7f3 !important;
+}
+.leaflet-routing-container a {
+  color: #087f70 !important;
+}
+.leaflet-routing-container::-webkit-scrollbar {
+  width: 7px;
+}
+.leaflet-routing-container::-webkit-scrollbar-thumb {
+  background: #b6c2ce;
+  border-radius: 8px;
+}
+.road-report-form {
+  display: grid;
+  gap: 12px;
+  width: 100%;
+  margin-top: 18px;
+}
+.road-report-form label {
+  display: grid;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.road-report-form input,
+.road-report-form select,
+.road-report-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 12px;
+  border: 1px solid #d7dfdf;
+  border-radius: 9px;
+  background: #fff;
+  color: #172525;
+  font: inherit;
+}
+.road-report-form textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+.report-list {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  margin-top: 18px;
+}
+.report-item {
+  padding: 14px;
+  border: 1px solid #d7dfdf;
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+.report-item h3 {
+  font-size: 15px;
+}
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.report-actions button {
+  padding: 8px 10px;
+  border: 1px solid #cbd5d5;
+  border-radius: 7px;
+  background: #fff;
+  cursor: pointer;
+}
+/* RoadSense AI report and admin panel layout fix */
+.dashboard-grid > .dashboard-panel {
+  min-width: 0;
+  box-sizing: border-box;
+}
+.feature-panel {
+  align-items: stretch;
+  min-width: 0;
+}
+.feature-panel > div {
+  min-width: 0;
+}
+.road-report-form {
+  width: 100%;
+  min-width: 0;
+}
+.road-report-form label {
+  width: 100%;
+  min-width: 0;
+}
+.road-report-form input,
+.road-report-form select,
+.road-report-form textarea {
+  width: 100%;
+  min-width: 0;
+}
+.report-list,
+.report-item {
+  min-width: 0;
+  box-sizing: border-box;
+}
+.report-actions button {
+  white-space: normal;
+}
+/* ==========================================
+   RoadSense AI — FINAL REPORT LAYOUT FIX
+   ========================================== */
+/* Report and admin cards */
+.dashboard-grid > .feature-panel {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* Card icon */
+.dashboard-grid > .feature-panel > .feature-symbol {
+  grid-column: 1;
+  grid-row: 1;
+}
+/* Card heading and description */
+.dashboard-grid > .feature-panel > div:not(.road-report-form):not(.report-list) {
+  grid-column: 2;
+  grid-row: 1;
+  width: 100%;
+  min-width: 0;
+}
+/* Prevent narrow, broken headings */
+.feature-panel h2 {
+  overflow-wrap: normal;
+  word-break: normal;
+  line-height: 1.35;
+}
+.feature-panel p {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+/* Buttons sit below the heading */
+.dashboard-grid > .feature-panel > .secondary-button {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  align-self: start;
+  max-width: 100%;
+  white-space: normal;
+}
+/* Report form occupies the full available card width */
+.road-report-form {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 15px;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+.road-report-form label {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 7px;
+  width: 100%;
+  min-width: 0;
+  color: #dbe6ee;
+  font-size: 12px;
+  font-weight: 600;
+}
+.road-report-form input,
+.road-report-form select,
+.road-report-form textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 43px;
+  padding: 11px 12px;
+  box-sizing: border-box;
+  border: 1px solid #34485a;
+  border-radius: 8px;
+  background: #0a141e;
+  color: #edf5fa;
+  font: inherit;
+}
+.road-report-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+.road-report-form input:focus,
+.road-report-form select:focus,
+.road-report-form textarea:focus {
+  outline: 2px solid rgba(101, 227, 206, 0.65);
+  outline-offset: 1px;
+  border-color: #65e3ce;
+}
+.road-report-form input::placeholder,
+.road-report-form textarea::placeholder {
+  color: #8497a8;
+}
+.road-report-form > button {
+  grid-column: 1;
+  justify-self: stretch;
+  width: 100%;
+}
+/* Admin report list */
+.report-list {
+  grid-column: 2;
+  grid-row: 3;
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  min-width: 0;
+  margin-top: 0;
+}
+.report-item {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid rgba(180, 210, 220, 0.16);
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+.report-item h3 {
+  margin: 0 0 10px;
+  color: #edf5fa;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.report-item p {
+  margin: 7px 0;
+  color: #9aabba;
+  font-size: 12px;
+  line-height: 1.6;
+}
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.report-actions button {
+  min-height: 36px;
+  padding: 8px 11px;
+  border: 1px solid rgba(130, 223, 207, 0.25);
+  border-radius: 7px;
+  background: rgba(130, 223, 207, 0.07);
+  color: #a4ecdf;
+  font-size: 11px;
+  cursor: pointer;
+}
+.report-actions button:hover {
+  background: rgba(130, 223, 207, 0.15);
+}
+.report-list > .secondary-button {
+  grid-column: 1;
+  justify-self: start;
+}
+/* Status messages */
+.dashboard-page [role="status"] {
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+/* Tablet and mobile */
+@media (max-width: 850px) {
+  .dashboard-grid > .feature-panel {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 14px;
+  }
+  .road-report-form,
+  .report-list {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+  .dashboard-grid > .feature-panel > .secondary-button {
+    grid-column: 2;
+    grid-row: 2;
+  }
+}
+@media (max-width: 520px) {
+  .dashboard-grid > .feature-panel {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 12px;
+    padding: 18px;
+  }
+  .dashboard-grid > .feature-panel > .feature-symbol {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+  .feature-panel h2 {
+    font-size: 19px;
+  }
+  .road-report-form,
+  .report-list {
+    grid-column: 1 / -1;
+  }
+  .dashboard-grid > .feature-panel > .secondary-button {
+    grid-column: 1 / -1;
+    justify-self: stretch;
+    width: 100%;
+  }
+  .report-actions button {
+    flex: 1 1 auto;
+  }
+}
+/* Clear, high-contrast Administrator Login button */
+.admin-login-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 49px;
+  margin-bottom: 20px;
+  padding: 12px 16px;
+  border: 1px solid #65e3ce;
+  border-radius: 7px;
+  background: #173a3b;
+  color: #9ff5e6;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+.admin-login-toggle:hover {
+  background: #65e3ce;
+  color: #071714;
+}
+.admin-login-toggle:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+.admin-login-toggle.admin-active {
+  background: #65e3ce;
+  color: #071714;
+  border-color: #65e3ce;
+}
+.admin-login-toggle.admin-active:hover {
+  background: #83f0de;
+}
+/* Admin account controls */
+.admin-account-actions {
+  display: grid;
+  gap: 9px;
+  margin-bottom: 20px;
+}
+.admin-login-toggle,
+.admin-register-toggle,
+.back-user-toggle {
+  width: 100%;
+  min-height: 45px;
+  padding: 11px 14px;
+  border: 1px solid #65e3ce;
+  border-radius: 7px;
+  background: #173a3b;
+  color: #9ff5e6;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease;
+}
+.admin-login-toggle:hover,
+.admin-register-toggle:hover {
+  background: #65e3ce;
+  color: #071714;
+}
+.admin-login-toggle.admin-active,
+.admin-register-toggle.admin-active {
+  background: #65e3ce;
+  color: #071714;
+}
+.back-user-toggle {
+  border-color: #526579;
+  background: #182535;
+  color: #e3edf5;
+}
+.back-user-toggle:hover {
+  background: #26394d;
+}
+.admin-account-actions button:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+/* =========================================
+   RoadSense AI — Full-Screen Report Modal
+   Append this at the END of App.css
+   ========================================= */
+.report-modal-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 99999 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 24px !important;
+  background: rgba(3, 8, 14, 0.88) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+}
+.report-modal {
+  position: relative !important;
+  width: min(920px, 100%) !important;
+  max-width: 920px !important;
+  max-height: calc(100dvh - 48px) !important;
+  margin: auto !important;
+  padding: 30px !important;
+  overflow-y: auto !important;
+  box-sizing: border-box !important;
+  border: 1px solid rgba(101, 227, 206, 0.28) !important;
+  border-radius: 18px !important;
+  background: linear-gradient(145deg, #172333, #0c1520) !important;
+  color: #edf5fa !important;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.6) !important;
+  animation: report-modal-enter 0.22s ease-out both;
+}
+.report-modal-header {
+  display: flex !important;
+  align-items: flex-start !important;
+  justify-content: space-between !important;
+  gap: 20px !important;
+  margin-bottom: 26px !important;
+  padding-bottom: 20px !important;
+  border-bottom: 1px solid rgba(180, 210, 220, 0.14) !important;
+}
+.report-modal-header > div {
+  min-width: 0;
+  flex: 1;
+}
+.report-modal-header h2 {
+  margin: 10px 0 !important;
+  color: #edf5fa !important;
+  font-size: clamp(23px, 3vw, 32px) !important;
+  line-height: 1.25 !important;
+}
+.report-modal-header p {
+  margin: 0 !important;
+  color: #9aabba !important;
+  font-size: 13px !important;
+  line-height: 1.7 !important;
+}
+.report-modal-close {
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 42px !important;
+  width: 42px !important;
+  height: 42px !important;
+  padding: 0 !important;
+  border: 1px solid #405165 !important;
+  border-radius: 10px !important;
+  background: #202e3e !important;
+  color: #ffffff !important;
+  font-size: 28px !important;
+  line-height: 1 !important;
+  cursor: pointer !important;
+}
+.report-modal-close:hover {
+  border-color: #65e3ce !important;
+  background: #24413f !important;
+}
+.report-modal-close:disabled {
+  opacity: 0.55;
+  cursor: not-allowed !important;
+}
+.report-modal .report-modal-form {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  align-items: start !important;
+  gap: 20px !important;
+  width: 100% !important;
+  margin: 0 !important;
+}
+.report-modal .report-modal-form > label {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  gap: 9px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  color: #dbe6ee !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+.report-modal .report-modal-form input,
+.report-modal .report-modal-form select,
+.report-modal .report-modal-form textarea {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 46px !important;
+  padding: 12px 14px !important;
+  box-sizing: border-box !important;
+  border: 1px solid #34485a !important;
+  border-radius: 9px !important;
+  background: #0a141e !important;
+  color: #edf5fa !important;
+  font: inherit !important;
+  font-size: 13px !important;
+}
+.report-modal .report-modal-form textarea {
+  min-height: 125px !important;
+  resize: vertical !important;
+}
+.report-modal .report-modal-form input::placeholder,
+.report-modal .report-modal-form textarea::placeholder {
+  color: #8497a8 !important;
+}
+.report-modal .report-modal-form input:focus,
+.report-modal .report-modal-form select:focus,
+.report-modal .report-modal-form textarea:focus {
+  outline: 2px solid rgba(101, 227, 206, 0.55) !important;
+  outline-offset: 1px !important;
+  border-color: #65e3ce !important;
+}
+.report-modal .report-modal-form .report-description-field,
+.report-modal .report-modal-form .report-coordinate-fields,
+.report-modal .report-modal-form .report-form-actions {
+  grid-column: 1 / -1 !important;
+}
+.report-modal .report-coordinate-fields {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: 18px !important;
+  width: 100% !important;
+  min-width: 0 !important;
+}
+.report-modal .report-coordinate-fields label {
+  display: grid !important;
+  gap: 9px !important;
+  min-width: 0 !important;
+  color: #dbe6ee !important;
+  font-size: 13px !important;
+  font-weight: 600 !important;
+}
+.report-modal .report-form-actions {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: wrap !important;
+  gap: 12px !important;
+  margin-top: 8px !important;
+  padding-top: 20px !important;
+  border-top: 1px solid rgba(180, 210, 220, 0.14) !important;
+}
+.report-modal .report-form-actions button {
+  width: auto !important;
+  min-width: 130px !important;
+  min-height: 46px !important;
+  margin: 0 !important;
+  justify-content: center !important;
+}
+.report-modal .report-form-actions .login-submit {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 12px !important;
+}
+.report-modal .report-form-actions button:disabled {
+  opacity: 0.6;
+  cursor: wait !important;
+}
+@keyframes report-modal-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 600px) {
+  .report-modal-backdrop {
+    align-items: flex-start !important;
+    padding: 10px !important;
+  }
+  .report-modal {
+    width: 100% !important;
+    max-height: calc(100dvh - 20px) !important;
+    padding: 20px 16px !important;
+    border-radius: 13px !important;
+  }
+  .report-modal-header {
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+  }
+  .report-modal .report-modal-form {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 17px !important;
+  }
+  .report-modal .report-modal-form > label,
+  .report-modal .report-modal-form .report-description-field,
+  .report-modal .report-modal-form .report-coordinate-fields,
+  .report-modal .report-modal-form .report-form-actions {
+    grid-column: 1 !important;
+  }
+  .report-modal .report-coordinate-fields {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 17px !important;
+  }
+  .report-modal .report-form-actions {
+    justify-content: stretch !important;
+  }
+  .report-modal .report-form-actions button {
+    flex: 1 1 120px !important;
+    min-width: 0 !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .report-modal {
+    animation: none !important;
+  }
+}
+/* RoadSense AI — fast UI polish patch
+   Append this file's contents to frontend/src/App.css.
+   Visual-only overrides: does not change routing, reports, or risk logic. */
+:root {
+  --rs-bg: #0b1120;
+  --rs-panel: rgba(17, 27, 45, .92);
+  --rs-panel-soft: rgba(30, 41, 59, .72);
+  --rs-border: rgba(148, 163, 184, .22);
+  --rs-teal: #2dd4bf;
+  --rs-text: #f1f5f9;
+  --rs-muted: #aab7c8;
+  --rs-radius: 18px;
+}
+.dashboard-page {
+  color: var(--rs-text);
+  background: radial-gradient(ellipse at 12% 0%, rgba(13,148,136,.13), transparent 34%),
+              radial-gradient(ellipse at 95% 22%, rgba(59,130,246,.09), transparent 30%),
+              var(--rs-bg);
+}
+.dashboard-header,
+.dashboard-panel,
+.dashboard-panel.feature-panel,
+.dashboard-panel.admin-panel,
+.map-panel,
+.route-comparison {
+  border-color: var(--rs-border);
+  border-radius: var(--rs-radius);
+  box-shadow: 0 12px 34px rgba(0,0,0,.16);
+}
+.dashboard-header {
+  backdrop-filter: blur(14px);
+  background: rgba(15, 23, 42, .88);
+}
+.dashboard-welcome,
+.panel-heading h2,
+.route-comparison h3 {
+  letter-spacing: -.025em;
+}
+.card-kicker,
+.intro-label {
+  color: var(--rs-teal);
+  font-weight: 800;
+  letter-spacing: .14em;
+  font-size: .72rem;
+}
+.dashboard-grid {
+  gap: 20px;
+  align-items: start;
+}
+.dashboard-panel,
+.dashboard-panel.feature-panel,
+.dashboard-panel.admin-panel {
+  background: linear-gradient(145deg, rgba(20, 31, 50, .97), rgba(12, 19, 33, .97));
+  border: 1px solid var(--rs-border);
+  padding: clamp(16px, 2vw, 24px);
+}
+.panel-heading {
+  gap: 16px;
+  margin-bottom: 18px;
+}
+.panel-icon,
+.brand-symbol,
+.feature-symbol {
+  box-shadow: 0 0 0 5px rgba(45, 212, 191, .07);
+}
+.dashboard-page button,
+.dashboard-page input,
+.dashboard-page select,
+.dashboard-page textarea {
+  font: inherit;
+}
+.dashboard-page button {
+  transition: transform .16s ease, border-color .16s ease, background .16s ease, box-shadow .16s ease;
+}
+.dashboard-page button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+.dashboard-page button:focus-visible,
+.dashboard-page a:focus-visible,
+.dashboard-page input:focus-visible,
+.dashboard-page textarea:focus-visible,
+.dashboard-page select:focus-visible {
+  outline: 2px solid var(--rs-teal);
+  outline-offset: 3px;
+}
+.secondary-button,
+.dashboard-logout,
+.map-choice,
+.emergency-button {
+  border-radius: 11px;
+  min-height: 42px;
+  font-weight: 700;
+}
+.secondary-button:hover:not(:disabled),
+.map-choice:hover:not(:disabled) {
+  border-color: rgba(45, 212, 191, .7);
+  box-shadow: 0 5px 18px rgba(13, 148, 136, .12);
+}
+.location-searches {
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.location-searches form {
+  gap: 9px;
+}
+.location-searches input,
+.dashboard-page input,
+.dashboard-page textarea,
+.dashboard-page select {
+  border: 1px solid rgba(148, 163, 184, .3);
+  border-radius: 10px;
+  background: rgba(8, 15, 28, .78);
+  color: var(--rs-text);
+}
+.location-searches input:focus,
+.dashboard-page input:focus,
+.dashboard-page textarea:focus,
+.dashboard-page select:focus {
+  border-color: var(--rs-teal);
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, .1);
+}
+.dashboard-message,
+.demo-note {
+  color: var(--rs-muted);
+  line-height: 1.65;
+}
+.real-map {
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, .3);
+  border-radius: 15px;
+  background: #111827;
+  box-shadow: 0 10px 28px rgba(0,0,0,.22);
+}
+.real-map .leaflet-container {
+  z-index: 0;
+  border-radius: inherit;
+}
+.route-comparison {
+  margin-top: 22px;
+  padding: clamp(14px, 2vw, 22px);
+  background: rgba(12, 20, 35, .76);
+  border: 1px solid var(--rs-border);
+}
+.route-comparison > button {
+  border-radius: 13px !important;
+  background: linear-gradient(145deg, rgba(22, 34, 54, .92), rgba(15, 23, 42, .95)) !important;
+  box-shadow: 0 7px 20px rgba(0,0,0,.12);
+}
+.route-comparison > button[aria-pressed="true"] {
+  border-color: var(--rs-teal) !important;
+  box-shadow: 0 0 0 2px rgba(45, 212, 191, .12), 0 10px 26px rgba(0,0,0,.2);
+}
+.search-results,
+.report-item,
+.feature-panel > div,
+.admin-panel > div {
+  border-color: var(--rs-border);
+  border-radius: 12px;
+}
+.emergency-notice {
+  border-radius: 12px;
+  line-height: 1.55;
+}
+.dashboard-footer {
+  color: var(--rs-muted);
+  border-top: 1px solid var(--rs-border);
+}
+@media (min-width: 1100px) {
+  .dashboard-grid {
+    gap: 22px;
+  }
+}
+@media (max-width: 760px) {
+  .dashboard-page {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .dashboard-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 14px;
+  }
+  .dashboard-panel,
+  .dashboard-panel.feature-panel,
+  .dashboard-panel.admin-panel,
+  .route-comparison {
+    padding: 14px;
+    border-radius: 14px;
+  }
+  .panel-heading {
+    align-items: flex-start;
+  }
+  .location-searches,
+  .location-searches form {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .location-searches input,
+  .location-searches button,
+  .secondary-button {
+    max-width: 100%;
+  }
+  .real-map .leaflet-container {
+    height: 340px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-page button {
+    transition: none;
+  }
+  .dashboard-page button:hover:not(:disabled) {
+    transform: none;
+  }
+}
+/* RoadSense AI — compact footer + subtle animated background
+   Append this patch at the VERY END of frontend/src/App.css.
+   Visual-only CSS; does not touch app logic. */
+html,
+body,
+#root {
+  min-height: 100% !important;
+  height: auto !important;
+}
+body {
+  margin-bottom: 0 !important;
+  overflow-x: hidden;
+  background: #080d17;
+}
+.dashboard-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 0 !important;
+  height: auto !important;
+  padding-bottom: 24px !important;
+  overflow: clip;
+  background-color: #0b1120 !important;
+  background-image:
+    radial-gradient(ellipse at 12% 8%, rgba(13, 148, 136, 0.16), transparent 38%),
+    radial-gradient(ellipse at 88% 28%, rgba(59, 130, 246, 0.12), transparent 34%),
+    linear-gradient(125deg, #0b1120, #101a2a, #0b1120) !important;
+  background-size: 160% 160%;
+  animation: roadsense-bg-drift 24s ease-in-out infinite alternate;
+}
+/* Gentle ambient glow, kept behind all UI content. */
+.dashboard-page::before {
+  content: "";
+  position: absolute;
+  inset: -18% -10%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 22% 35%, rgba(45, 212, 191, 0.09), transparent 24%),
+    radial-gradient(circle at 76% 62%, rgba(96, 165, 250, 0.08), transparent 28%);
+  filter: blur(24px);
+  transform: translate3d(0, 0, 0);
+  animation: roadsense-glow-float 18s ease-in-out infinite alternate;
+}
+.dashboard-footer {
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 12px !important;
+}
+@keyframes roadsense-bg-drift {
+  0% { background-position: 0% 15%; }
+  100% { background-position: 100% 85%; }
+}
+@keyframes roadsense-glow-float {
+  0% { transform: translate3d(-1.5%, -1%, 0) scale(0.98); }
+  100% { transform: translate3d(1.5%, 1%, 0) scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-page,
+  .dashboard-page::before {
+    animation: none !important;
+  }
+}
+@media (max-width: 760px) {
+  .dashboard-page {
+    padding-bottom: 16px !important;
+  }
+  .dashboard-footer {
+    margin-top: 16px !important;
+  }
+}
+/* ===== FINAL POLISH: restrained 3D ambience, buttons, and compact page flow ===== */
+:root {
+  --rs-glass: rgba(17, 29, 45, 0.76);
+  --rs-line: rgba(128, 171, 194, 0.22);
+  --rs-accent: #65e3ce;
+  --rs-accent-blue: #63a9ff;
+}
+/* Keep the page content-driven: no artificial viewport-sized blank area. */
+html, body, #root {
+  min-height: 100%;
+}
+body {
+  overflow-x: hidden;
+}
+.dashboard-page {
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  padding-top: clamp(16px, 2.2vh, 26px);
+  padding-bottom: 12px;
+  background-size: 160% 160%;
+  animation: rs-dashboard-light-drift 22s ease-in-out infinite alternate;
+}
+.dashboard-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 12% 18%, rgba(45, 212, 191, .12), transparent 34%),
+    radial-gradient(ellipse at 88% 30%, rgba(59, 130, 246, .10), transparent 32%),
+    linear-gradient(125deg, rgba(8, 14, 22, .15), rgba(17, 39, 55, .10), rgba(8, 14, 22, .18));
+  background-size: 180% 180%;
+  transform: translate3d(0, 0, 0);
+  animation: rs-ambient-depth 20s ease-in-out infinite alternate;
+}
+/* Subtle depth without changing layout or intercepting map controls. */
+.dashboard-panel,
+.dashboard-panel.feature-panel,
+.dashboard-panel.admin-panel,
+.map-panel,
+.route-comparison,
+.login-card {
+  transform: translateZ(0);
+  transition: border-color .22s ease, box-shadow .22s ease, background-color .22s ease;
+}
+.dashboard-panel:hover,
+.dashboard-panel.feature-panel:hover,
+.dashboard-panel.admin-panel:hover,
+.route-comparison:hover {
+  border-color: rgba(101, 227, 206, .30);
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .22), 0 0 0 1px rgba(101, 227, 206, .035);
+}
+/* Stylish, consistent buttons; hover effects are restrained and accessible. */
+button,
+.secondary-button,
+.dashboard-logout,
+.emergency-button,
+.report-actions button,
+.login-submit,
+.admin-login-toggle,
+.admin-register-toggle,
+.back-user-toggle,
+.report-modal-close {
+  transition:
+    transform .18s ease,
+    box-shadow .2s ease,
+    border-color .2s ease,
+    background-color .2s ease,
+    color .2s ease;
+}
+button:not(:disabled):hover,
+.secondary-button:hover,
+.dashboard-logout:hover,
+.emergency-button:hover,
+.report-actions button:hover,
+.admin-register-toggle:hover,
+.back-user-toggle:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .18);
+}
+button:active:not(:disabled),
+.secondary-button:active,
+.dashboard-logout:active,
+.emergency-button:active,
+.report-actions button:active {
+  transform: translateY(0) scale(.985);
+}
+.login-submit {
+  box-shadow: 0 5px 18px rgba(45, 212, 191, .10);
+}
+.login-submit:hover {
+  box-shadow: 0 8px 25px rgba(45, 212, 191, .20);
+}
+.emergency-button:hover {
+  box-shadow: 0 7px 22px rgba(255, 85, 85, .14);
+}
+button:disabled {
+  cursor: not-allowed;
+  opacity: .65;
+}
+/* Reduce unnecessary space beneath the dashboard footer. */
+.dashboard-footer {
+  margin-top: clamp(18px, 3vh, 30px) !important;
+  margin-bottom: 0 !important;
+  padding-bottom: 10px !important;
+}
+.login-page {
+  min-height: 100svh;
+}
+.login-content {
+  padding-top: clamp(22px, 4vh, 48px);
+  padding-bottom: clamp(22px, 4vh, 48px);
+}
+/* Keep map and route information readable without forcing the whole page to a fixed height. */
+.map-panel,
+.dashboard-grid,
+.dashboard-panel,
+.route-comparison {
+  min-width: 0;
+}
+.real-map {
+  max-width: 100%;
+}
+img, canvas, svg, video {
+  max-width: 100%;
+}
+@keyframes rs-dashboard-light-drift {
+  0% { background-position: 0% 15%; }
+  100% { background-position: 100% 85%; }
+}
+@keyframes rs-ambient-depth {
+  0% { transform: translate3d(-.5%, -.4%, 0) scale(1); opacity: .72; }
+  100% { transform: translate3d(.5%, .4%, 0) scale(1.025); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dashboard-page,
+  .dashboard-page::before {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: .01ms !important;
+  }
+}
+@media (max-width: 650px) {
+  .dashboard-page {
+    padding-top: 14px;
+    padding-bottom: 8px;
+  }
+  .dashboard-footer {
+    margin-top: 16px !important;
+    padding-bottom: 8px !important;
+  }
+}
+/* RoadSense AI — Emergency panel spacing refinement */
+.emergency-panel,
+.nearby-services-panel,
+.local-services-panel {
+  padding: clamp(18px, 2.5vw, 30px) !important;
+  border-radius: 16px !important;
+}
+.emergency-panel h2,
+.nearby-services-panel h2,
+.local-services-panel h2 {
+  margin: 8px 0 12px !important;
+  font-size: clamp(21px, 2vw, 28px) !important;
+  line-height: 1.3 !important;
+  letter-spacing: -0.4px;
+}
+.emergency-panel p,
+.nearby-services-panel p,
+.local-services-panel p {
+  line-height: 1.65 !important;
+  margin: 8px 0 14px !important;
+  font-size: 14px !important;
+}
+.emergency-panel button,
+.nearby-services-panel button,
+.local-services-panel button {
+  min-height: 44px !important;
+  padding: 10px 16px !important;
+  border-radius: 9px !important;
+  font-size: 14px !important;
+}
+.emergency-panel [role="alert"],
+.nearby-services-panel [role="alert"],
+.local-services-panel [role="alert"] {
+  margin: 12px 0 !important;
+  padding: 12px 14px !important;
+  border-radius: 10px;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+.emergency-panel *,
+.nearby-services-panel *,
+.local-services-panel * {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .emergency-panel,
+  .nearby-services-panel,
+  .local-services-panel {
+    padding: 16px !important;
+  }
+}
+/* RoadSense AI — Emergency Services panel redesign
+   Scoped to the EmergencyPanel in InteractiveMap.jsx.
+   No React, routing, hazard scoring, or service-fetch logic is changed. */
+/* Main panel: calmer, compact, layered dark-glass design */
+.map-panel > section:has(> p[role="alert"]) {
+  box-sizing: border-box !important;
+  margin: 18px 0 !important;
+  padding: clamp(16px, 2.2vw, 26px) !important;
+  border: 1px solid rgba(248, 113, 113, 0.48) !important;
+  border-radius: 18px !important;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(239, 68, 68, 0.11), transparent 42%),
+    linear-gradient(145deg, rgba(24, 25, 40, 0.97), rgba(17, 24, 39, 0.96)) !important;
+  box-shadow:
+    0 14px 34px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.045) !important;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+/* Soft ambient glow — subtle and non-distracting */
+.map-panel > section:has(> p[role="alert"])::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 240px;
+  height: 240px;
+  top: -150px;
+  right: -80px;
+  border-radius: 50%;
+  background: rgba(45, 212, 191, 0.12);
+  filter: blur(36px);
+  pointer-events: none;
+  animation: emergencyAmbientDrift 12s ease-in-out infinite alternate;
+}
+@keyframes emergencyAmbientDrift {
+  from { transform: translate3d(0, 0, 0) scale(0.9); opacity: 0.55; }
+  to   { transform: translate3d(-28px, 22px, 0) scale(1.14); opacity: 0.95; }
+}
+/* Section label */
+.map-panel > section:has(> p[role="alert"]) > .card-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 5px;
+  color: #5eead4 !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.16em;
+}
+/* Heading and description */
+.map-panel > section:has(> p[role="alert"]) > h3 {
+  margin: 5px 0 9px !important;
+  color: #f8fafc;
+  font-size: clamp(19px, 2vw, 25px) !important;
+  line-height: 1.28 !important;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+.map-panel > section:has(> p[role="alert"]) > p:not([role="alert"]) {
+  max-width: 78ch;
+  color: #cbd5e1;
+  font-size: 13px !important;
+  line-height: 1.65 !important;
+  overflow-wrap: anywhere;
+}
+/* Refresh button: compact, polished, accessible */
+.map-panel > section:has(> p[role="alert"]) button.secondary-button {
+  min-height: 42px;
+  padding: 10px 15px !important;
+  border: 1px solid rgba(94, 234, 212, 0.36) !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, rgba(20, 184, 166, 0.16), rgba(30, 41, 59, 0.88)) !important;
+  color: #ccfbf1 !important;
+  font-size: 13px !important;
+  font-weight: 700;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+.map-panel > section:has(> p[role="alert"]) button.secondary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(94, 234, 212, 0.8) !important;
+  box-shadow: 0 8px 22px rgba(13, 148, 136, 0.18);
+}
+.map-panel > section:has(> p[role="alert"]) button.secondary-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.985);
+}
+.map-panel > section:has(> p[role="alert"]) button.secondary-button:disabled {
+  opacity: 0.58;
+  cursor: wait;
+}
+/* Emergency disclaimer: visually distinct but no longer a giant red headline */
+.map-panel > section:has(> p[role="alert"]) > p[role="alert"] {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin: 13px 0 8px !important;
+  padding: 11px 13px;
+  border: 1px solid rgba(248, 113, 113, 0.24);
+  border-radius: 10px;
+  background: rgba(127, 29, 29, 0.18);
+  color: #fca5a5 !important;
+  font-size: 12px !important;
+  font-weight: 650 !important;
+  line-height: 1.55 !important;
+}
+.map-panel > section:has(> p[role="alert"]) > p[role="alert"]::before {
+  content: "!";
+  flex: 0 0 19px;
+  display: inline-grid;
+  place-items: center;
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: rgba(248, 113, 113, 0.18);
+  border: 1px solid rgba(248, 113, 113, 0.6);
+  font-size: 12px;
+  font-weight: 900;
+}
+/* Loading/error/empty states */
+.map-panel > section:has(> p[role="alert"]) > p:not([role="alert"]):has(+ div) {
+  margin-bottom: 10px !important;
+}
+.map-panel > section:has(> p[role="alert"]) > p[style*="color: rgb(251, 191, 36)"] {
+  margin: 10px 0 !important;
+  padding: 10px 12px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  border-radius: 9px;
+  background: rgba(120, 53, 15, 0.16);
+  color: #fcd34d !important;
+  font-size: 12px !important;
+  line-height: 1.5;
+}
+/* Nearby service cards — reduce crowding and establish hierarchy */
+.map-panel > section:has(> p[role="alert"]) > div[style*="grid"] {
+  gap: 9px !important;
+  margin-top: 13px !important;
+}
+.map-panel > section:has(> p[role="alert"]) > div[style*="grid"] > div {
+  box-sizing: border-box;
+  padding: 13px 14px !important;
+  border: 1px solid rgba(148, 163, 184, 0.15);
+  border-radius: 12px !important;
+  background: linear-gradient(135deg, rgba(51, 65, 85, 0.42), rgba(30, 41, 59, 0.54)) !important;
+  transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.map-panel > section:has(> p[role="alert"]) > div[style*="grid"] > div:hover {
+  transform: translateY(-1px);
+  border-color: rgba(94, 234, 212, 0.3);
+  background: linear-gradient(135deg, rgba(51, 65, 85, 0.55), rgba(30, 41, 59, 0.7)) !important;
+}
+.map-panel > section:has(> p[role="alert"]) > div[style*="grid"] > div > strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #f8fafc;
+  font-size: 14px;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.map-panel > section:has(> p[role="alert"]) > div[style*="grid"] > div > div {
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+/* Service links and navigation actions */
+.map-panel > section:has(> p[role="alert"]) a {
+  color: #99f6e4 !important;
+  text-decoration: none;
+  text-underline-offset: 3px;
+}
+.map-panel > section:has(> p[role="alert"]) a:hover {
+  text-decoration: underline;
+}
+.map-panel > section:has(> p[role="alert"]) > p:last-child {
+  margin-top: 12px !important;
+  color: #94a3b8 !important;
+  font-size: 11px !important;
+  line-height: 1.55 !important;
+}
+/* Responsive sizing */
+@media (max-width: 640px) {
+  .map-panel > section:has(> p[role="alert"]) {
+    margin: 12px 0 !important;
+    padding: 15px !important;
+    border-radius: 14px !important;
+  }
+  .map-panel > section:has(> p[role="alert"]) > h3 {
+    font-size: 20px !important;
+  }
+  .map-panel > section:has(> p[role="alert"]) > p:not([role="alert"]) {
+    font-size: 12px !important;
+  }
+  .map-panel > section:has(> p[role="alert"]) button.secondary-button {
+    width: 100%;
+  }
+  .map-panel > section:has(> p[role="alert"]) > div[style*="grid"] > div {
+    padding: 11px !important;
+  }
+}
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .map-panel > section:has(> p[role="alert"])::before {
+    animation: none;
+  }
+  .map-panel > section:has(> p[role="alert"]) *,
+  .map-panel > section:has(> p[role="alert"]) *::before,
+  .map-panel > section:has(> p[role="alert"]) *::after {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* RoadSense AI — InteractiveMap search + map selection redesign
+   Append to frontend/src/App.css. Targets the exact class names in InteractiveMap.jsx:
+   .map-panel, .location-searches, .map-selection-actions, .map-choice, .real-map
+*/
+/* --- Search forms: responsive, aligned, modern glass controls --- */
+.map-panel .location-searches {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px !important;
+  margin: 18px 0 12px !important;
+  align-items: stretch;
+}
+.map-panel .location-searches form {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 10px !important;
+  min-width: 0;
+  padding: 15px !important;
+  border: 1px solid rgba(148, 163, 184, 0.19);
+  border-radius: 16px;
+  background:
+    linear-gradient(145deg, rgba(30, 41, 59, 0.72), rgba(15, 23, 42, 0.74));
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.035);
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+.map-panel .location-searches form:focus-within {
+  border-color: rgba(45, 212, 191, 0.6);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.09), 0 10px 24px rgba(0,0,0,0.12);
+}
+.map-panel .location-searches label {
+  display: flex !important;
+  flex-direction: column;
+  gap: 7px;
+  min-width: 0;
+  color: #cbd5e1;
+  font-size: 12px !important;
+  font-weight: 700;
+  letter-spacing: 0.025em;
+  line-height: 1.4;
+}
+.map-panel .location-searches input {
+  box-sizing: border-box;
+  display: block;
+  width: 100% !important;
+  min-width: 0;
+  min-height: 44px;
+  padding: 11px 13px !important;
+  border: 1px solid rgba(148, 163, 184, 0.32) !important;
+  border-radius: 10px !important;
+  outline: none;
+  background: rgba(2, 6, 23, 0.55) !important;
+  color: #f8fafc !important;
+  font-size: 14px !important;
+  line-height: 1.4;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.18);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+.map-panel .location-searches input::placeholder {
+  color: #7f8da3 !important;
+  opacity: 1;
+}
+.map-panel .location-searches input:hover {
+  border-color: rgba(148, 163, 184, 0.52) !important;
+}
+.map-panel .location-searches input:focus {
+  border-color: #2dd4bf !important;
+  background: rgba(2, 6, 23, 0.78) !important;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.13) !important;
+}
+.map-panel .location-searches button.secondary-button {
+  min-height: 44px;
+  align-self: end;
+  padding: 10px 14px !important;
+  border: 1px solid rgba(45, 212, 191, 0.42) !important;
+  border-radius: 10px !important;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.23), rgba(30, 41, 59, 0.94)) !important;
+  color: #ccfbf1 !important;
+  font-size: 12px !important;
+  font-weight: 750;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.map-panel .location-searches button.secondary-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: rgba(94, 234, 212, 0.85) !important;
+  box-shadow: 0 8px 20px rgba(13, 148, 136, 0.17);
+}
+.map-panel .location-searches button.secondary-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+.map-panel .location-searches button.secondary-button:disabled {
+  opacity: 0.58;
+  cursor: wait;
+}
+/* --- Map selection controls: compact toolbar, no oversized gray buttons --- */
+.map-panel .map-selection-actions {
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 9px !important;
+  margin: 14px 0 10px !important;
+  padding: 10px;
+  border: 1px solid rgba(148, 163, 184, 0.16);
+  border-radius: 14px;
+  background: rgba(15, 23, 42, 0.54);
+}
+.map-panel .map-selection-actions .map-choice {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: auto !important;
+  min-width: 0;
+  min-height: 40px;
+  padding: 10px 14px !important;
+  border: 1px solid rgba(148, 163, 184, 0.28) !important;
+  border-radius: 10px !important;
+  background: rgba(30, 41, 59, 0.82) !important;
+  color: #dbeafe !important;
+  font-size: 12px !important;
+  font-weight: 750;
+  line-height: 1.35;
+  white-space: normal;
+  text-align: center;
+  box-shadow: none !important;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+.map-panel .map-selection-actions .map-choice::before {
+  content: "";
+  display: inline-block;
+  flex: 0 0 7px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.12);
+}
+.map-panel .map-selection-actions .map-choice:hover {
+  transform: translateY(-1px);
+  border-color: rgba(94, 234, 212, 0.52) !important;
+  background: rgba(20, 40, 55, 0.96) !important;
+}
+.map-panel .map-selection-actions .map-choice.active {
+  border-color: rgba(45, 212, 191, 0.8) !important;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.3), rgba(15, 23, 42, 0.95)) !important;
+  color: #99f6e4 !important;
+  box-shadow: inset 0 0 0 1px rgba(45, 212, 191, 0.13), 0 5px 16px rgba(13, 148, 136, 0.11) !important;
+}
+.map-panel .map-selection-actions .map-choice.active::before {
+  background: #5eead4;
+  box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.16), 0 0 10px rgba(45, 212, 191, 0.35);
+}
+/* --- Map frame: clean edge and sensible spacing --- */
+.map-panel .real-map {
+  margin-top: 0 !important;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 16px !important;
+  background: #0f172a;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18), inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.map-panel .real-map .leaflet-container {
+  border-radius: inherit;
+  outline: none;
+}
+/* Smaller screens: stack each search form and make controls full width */
+@media (max-width: 900px) {
+  .map-panel .location-searches {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .map-panel .location-searches form {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+@media (max-width: 560px) {
+  .map-panel .location-searches {
+    gap: 10px !important;
+    margin-top: 12px !important;
+  }
+  .map-panel .location-searches form {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 9px !important;
+    padding: 12px !important;
+    border-radius: 13px;
+  }
+  .map-panel .location-searches button.secondary-button {
+    width: 100%;
+  }
+  .map-panel .map-selection-actions {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px !important;
+    padding: 8px;
+  }
+  .map-panel .map-selection-actions .map-choice {
+    width: 100% !important;
+    min-height: 44px;
+    padding: 9px 8px !important;
+    font-size: 11px !important;
+  }
+  .map-panel .real-map {
+    border-radius: 12px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-panel .location-searches *,
+  .map-panel .map-selection-actions *,
+  .map-panel .real-map * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+/* RoadSense AI — Available Routes redesign
+   Append to frontend/src/App.css. Scoped to .route-comparison only.
+   Keeps route calculations and click/selection behaviour unchanged. */
+.map-panel .route-comparison {
+  position: relative;
+  isolation: isolate;
+  margin: 22px 0 18px !important;
+  padding: clamp(16px, 2.2vw, 26px) !important;
+  overflow: hidden;
+  border: 1px solid rgba(100, 116, 139, 0.34);
+  border-radius: 22px;
+  background:
+    radial-gradient(ellipse at 8% 0%, rgba(20, 184, 166, 0.11), transparent 42%),
+    linear-gradient(145deg, rgba(15, 23, 42, 0.97), rgba(10, 16, 31, 0.98));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.20), inset 0 1px 0 rgba(255,255,255,0.045);
+}
+.map-panel .route-comparison::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -100px;
+  right: -90px;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: rgba(45, 212, 191, 0.075);
+  filter: blur(38px);
+  pointer-events: none;
+  animation: rsRouteGlow 9s ease-in-out infinite alternate;
+}
+.map-panel .route-comparison > h3 {
+  margin: 0 0 8px !important;
+  color: #f1f5f9;
+  font-size: clamp(21px, 2vw, 27px) !important;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+.map-panel .route-comparison > h3::before {
+  content: "↗";
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  margin-right: 10px;
+  border: 1px solid rgba(45, 212, 191, 0.28);
+  border-radius: 11px;
+  background: rgba(13, 148, 136, 0.13);
+  color: #5eead4;
+  font-size: 19px;
+  vertical-align: -2px;
+}
+.map-panel .route-comparison > p:not(.demo-note) {
+  margin: 0 0 18px !important;
+  max-width: 850px;
+  color: #aab8ca;
+  font-size: 13px !important;
+  line-height: 1.65;
+}
+/* Each route is a selectable card. Inline styles from JSX are deliberately
+   overridden here without touching the component's route logic. */
+.map-panel .route-comparison > button {
+  position: relative;
+  display: block !important;
+  width: 100% !important;
+  margin: 0 0 13px !important;
+  padding: clamp(15px, 2vw, 21px) !important;
+  overflow: hidden;
+  border: 1px solid rgba(100, 116, 139, 0.42) !important;
+  border-radius: 17px !important;
+  background: linear-gradient(140deg, rgba(30, 41, 59, 0.78), rgba(15, 23, 42, 0.78)) !important;
+  color: #e5edf7 !important;
+  text-align: left !important;
+  font-size: 14px;
+  line-height: 1.8;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.13), inset 0 1px 0 rgba(255,255,255,0.035) !important;
+  cursor: pointer;
+  transform: translateY(0);
+  transition: transform 200ms ease, border-color 200ms ease, box-shadow 200ms ease, background 200ms ease;
+  animation: rsRouteEnter 420ms both;
+}
+.map-panel .route-comparison > button:nth-of-type(2) { animation-delay: 55ms; }
+.map-panel .route-comparison > button:nth-of-type(3) { animation-delay: 110ms; }
+.map-panel .route-comparison > button:nth-of-type(4) { animation-delay: 165ms; }
+.map-panel .route-comparison > button:hover {
+  transform: translateY(-3px) !important;
+  border-color: rgba(45, 212, 191, 0.58) !important;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.22), 0 0 0 1px rgba(45,212,191,0.07) !important;
+}
+.map-panel .route-comparison > button:focus-visible {
+  outline: 3px solid rgba(45, 212, 191, 0.72);
+  outline-offset: 3px;
+}
+.map-panel .route-comparison > button[aria-pressed="true"] {
+  border: 1px solid rgba(45, 212, 191, 0.82) !important;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(13, 148, 136, 0.19), transparent 65%),
+    linear-gradient(140deg, rgba(17, 55, 62, 0.9), rgba(15, 23, 42, 0.96)) !important;
+  box-shadow: 0 0 0 2px rgba(45, 212, 191, 0.08), 0 14px 28px rgba(0,0,0,0.18) !important;
+}
+.map-panel .route-comparison > button > strong:first-child {
+  display: inline-block;
+  margin-right: 9px;
+  color: #f8fafc;
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+}
+/* JSX status spans: recommendation badge and risk badge */
+.map-panel .route-comparison > button > span {
+  display: inline-flex !important;
+  align-items: center;
+  vertical-align: middle;
+  margin: 3px 7px 5px 0 !important;
+  padding: 5px 9px !important;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 999px !important;
+  background: rgba(100, 116, 139, 0.17) !important;
+  color: #dbeafe !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1.4;
+  letter-spacing: 0.015em;
+}
+/* First status badge is the recommended-route badge */
+.map-panel .route-comparison > button > span:first-of-type {
+  border-color: rgba(45, 212, 191, 0.32);
+  background: rgba(13, 148, 136, 0.18) !important;
+  color: #99f6e4 !important;
+}
+/* Second status badge is risk. Retain the severity meaning, but soften its
+   inline colour into a readable tinted pill. */
+.map-panel .route-comparison > button > span:nth-of-type(2) {
+  border-color: rgba(248, 113, 113, 0.3);
+  background: rgba(220, 38, 38, 0.14) !important;
+  color: #fca5a5 !important;
+}
+/* Route summary: clearer line breaks and key numbers */
+.map-panel .route-comparison > button br {
+  display: block;
+  content: "";
+  margin-top: 2px;
+}
+.map-panel .route-comparison > button {
+  font-variant-numeric: tabular-nums;
+}
+/* Hazard details container generated by inline JSX styles */
+.map-panel .route-comparison > button > div {
+  box-sizing: border-box;
+}
+.map-panel .route-comparison > button > div[style*="rgba(220, 38, 38"] {
+  margin-top: 13px !important;
+  padding: 13px !important;
+  border: 1px solid rgba(248, 113, 113, 0.28) !important;
+  border-radius: 13px !important;
+  background: linear-gradient(145deg, rgba(127, 29, 29, 0.15), rgba(15, 23, 42, 0.38)) !important;
+}
+.map-panel .route-comparison > button > div[style*="rgba(220, 38, 38"] > strong {
+  display: block;
+  margin-bottom: 8px;
+  color: #fecaca;
+  font-size: 13px;
+}
+.map-panel .route-comparison > button > div[style*="rgba(220, 38, 38"] > div {
+  margin-top: 8px !important;
+  padding: 10px 11px !important;
+  border: 1px solid rgba(148, 163, 184, 0.13);
+  border-radius: 10px !important;
+  background: rgba(148, 163, 184, 0.075) !important;
+  line-height: 1.65;
+}
+.map-panel .route-comparison > button > div[style*="rgba(220, 38, 38"] > div strong {
+  color: #f8fafc;
+  font-size: 13px;
+}
+.map-panel .route-comparison > button > span[style*="block"] {
+  display: block !important;
+  margin-top: 12px !important;
+  padding-top: 10px;
+  border-top: 1px solid rgba(100, 116, 139, 0.23);
+  color: #cbd5e1 !important;
+  line-height: 1.65;
+}
+.map-panel .route-comparison > button > span[style*="block"] strong {
+  color: #99f6e4;
+}
+.map-panel .route-comparison > .demo-note {
+  margin: 14px 0 0 !important;
+  padding: 12px 14px;
+  border: 1px solid rgba(100, 116, 139, 0.2);
+  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.52);
+  color: #94a3b8;
+  font-size: 11px !important;
+  line-height: 1.65;
+}
+@keyframes rsRouteEnter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rsRouteGlow {
+  from { transform: translate3d(0, 0, 0) scale(0.92); opacity: 0.65; }
+  to { transform: translate3d(-18px, 16px, 0) scale(1.08); opacity: 1; }
+}
+@media (max-width: 650px) {
+  .map-panel .route-comparison {
+    padding: 13px !important;
+    border-radius: 17px;
+  }
+  .map-panel .route-comparison > button {
+    padding: 13px !important;
+    border-radius: 13px !important;
+    font-size: 13px;
+  }
+  .map-panel .route-comparison > button > strong:first-child {
+    font-size: 16px;
+  }
+  .map-panel .route-comparison > button > span {
+    font-size: 10px !important;
+  }
+  .map-panel .route-comparison > button > div[style*="rgba(220, 38, 38"] {
+    padding: 10px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-panel .route-comparison::before,
+  .map-panel .route-comparison > button {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+/* RoadSense AI — Fix Leaflet Routing Machine instruction panel overflow
+   Append to frontend/src/App.css. Does not change route calculations. */
+/* Keep the turn-by-turn panel inside the map and stop it covering most of the map. */
+.map-panel .real-map {
+  position: relative;
+}
+.map-panel .real-map .leaflet-routing-container,
+.map-panel .real-map .leaflet-routing-container.leaflet-routing-container-hide {
+  box-sizing: border-box !important;
+  width: min(360px, calc(100% - 24px)) !important;
+  max-width: calc(100% - 24px) !important;
+  max-height: 260px !important;
+  margin: 12px !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+  border: 1px solid rgba(148, 163, 184, 0.48) !important;
+  border-radius: 14px !important;
+  background: rgba(248, 250, 252, 0.97) !important;
+  color: #0f172a !important;
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.28) !important;
+  backdrop-filter: blur(10px);
+  scrollbar-width: thin;
+  scrollbar-color: #94a3b8 transparent;
+}
+/* Make route summary headings compact and readable. */
+.map-panel .real-map .leaflet-routing-container h2,
+.map-panel .real-map .leaflet-routing-container h3 {
+  margin: 0 !important;
+  padding: 12px 14px 6px !important;
+  color: #0f172a !important;
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  font-weight: 800 !important;
+}
+.map-panel .real-map .leaflet-routing-container p {
+  margin: 0 !important;
+  padding: 0 14px 10px !important;
+  color: #334155 !important;
+  font-size: 12px !important;
+  line-height: 1.45 !important;
+}
+/* Prevent long road names/instructions from stretching the panel. */
+.map-panel .real-map .leaflet-routing-container table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  table-layout: fixed !important;
+  margin: 0 !important;
+}
+.map-panel .real-map .leaflet-routing-container td,
+.map-panel .real-map .leaflet-routing-container th {
+  box-sizing: border-box !important;
+  padding: 6px 8px !important;
+  color: #172033 !important;
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+  overflow-wrap: anywhere !important;
+  vertical-align: middle !important;
+}
+.map-panel .real-map .leaflet-routing-container tr:nth-child(odd) {
+  background: rgba(226, 232, 240, 0.62) !important;
+}
+.map-panel .real-map .leaflet-routing-container tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+.map-panel .real-map .leaflet-routing-container .leaflet-routing-alt {
+  max-height: none !important;
+  overflow: visible !important;
+  border-bottom: 1px solid #cbd5e1 !important;
+}
+.map-panel .real-map .leaflet-routing-container .leaflet-routing-alt:last-child {
+  border-bottom: 0 !important;
+}
+.map-panel .real-map .leaflet-routing-container a {
+  color: #0f766e !important;
+  overflow-wrap: anywhere;
+}
+.map-panel .real-map .leaflet-routing-container button {
+  max-width: 100%;
+}
+/* Make the routing panel toggle control easier to spot and use. */
+.map-panel .real-map .leaflet-routing-collapse-btn {
+  top: 8px !important;
+  right: 8px !important;
+  border-radius: 8px !important;
+}
+/* On smaller screens, use a shorter panel so the map remains visible. */
+@media (max-width: 650px) {
+  .map-panel .real-map .leaflet-routing-container,
+  .map-panel .real-map .leaflet-routing-container.leaflet-routing-container-hide {
+    width: min(300px, calc(100% - 16px)) !important;
+    max-width: calc(100% - 16px) !important;
+    max-height: 190px !important;
+    margin: 8px !important;
+    border-radius: 11px !important;
+  }
+  .map-panel .real-map .leaflet-routing-container td,
+  .map-panel .real-map .leaflet-routing-container th {
+    padding: 5px 6px !important;
+    font-size: 11px !important;
+  }
+  .map-panel .real-map .leaflet-routing-container h2,
+  .map-panel .real-map .leaflet-routing-container h3 {
+    padding: 9px 10px 4px !important;
+    font-size: 12px !important;
+  }
+  .map-panel .real-map .leaflet-routing-container p {
+    padding: 0 10px 8px !important;
+    font-size: 11px !important;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-panel .real-map .leaflet-routing-container {
+    scroll-behavior: auto !important;
+  }
+}
